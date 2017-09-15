@@ -1,0 +1,35 @@
+#=====================
+# Server configuration
+#=====================
+server:
+  port: 8098
+
+#======================
+# Logback configuration
+#======================
+logging:
+  pattern:
+    console: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: ERROR
+    org.springframework.web: WARN
+    io.danpalmer101: DEBUG
+
+#===================
+# Zuul configuration
+#===================
+zuul:
+  prefix: /gateway/api
+  routes:
+    sample:
+      path: /v1/sample
+      url: http://localhost:9999/
+
+#=====================
+# Filter configuration - Sample to add an Authorization header to each request
+#=====================
+
+filter:
+  addheaders:
+    values:
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiY2xfaWQiOiIwMDA3Iiwic2Vzc19pZCI6IjExMTExMSJ9.7FwgO1exhLnAMKCUSa6MDPrOfl6ysTRA4HLV7U2AteQ
