@@ -12,3 +12,10 @@ mvn spring-boot:run
 ```
 
 Alternative `application.yml` files can be used with spring profiles, and options can be overridden with command line arguments or an additional properties/yaml file.
+
+The Gateway can be run on Cloud Foundry with:
+
+```
+mvn clean install
+cf push registry -p target/zuul-gateway-<version>.jar
+```
