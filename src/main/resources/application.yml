@@ -23,7 +23,19 @@ zuul:
   routes:
     sample:
       path: /v1/sample
-      url: http://localhost:9999/
+      serviceId: sample-service
+
+#=====================
+# Eureka configuration
+#=====================
+eureka:
+  instance:
+    appname: gateway
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8099/registry/eureka/
 
 #=====================
 # Filter configuration - Sample to add an Authorization header to each request
